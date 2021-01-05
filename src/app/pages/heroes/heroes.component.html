@@ -11,7 +11,8 @@
 </div>
 
 
-<table class="table mt-3 animate__animated animate__fadeIn animate__faster">
+
+<table class="table mt-3 animate__animated animate__fadeIn animate__faster" *ngIf="listaHeroes">
     <thead class="table-dark">
         <tr>
             <th>#</th>
@@ -22,25 +23,36 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@amdo</td>
+
+        <tr *ngFor='let heroe of listaHeroes; let i = index'>
+            <th scope="row">{{i+1}}</th>
+            <td>{{heroe.nombre}}</td>
+            <td>{{heroe.poder}}</td>
+            <td>
+                <div class="form-group text-center">
+
+                    <h4><span class="badge rounded-pill bg-success" *ngIf="heroe.vivo">Vivo</span></h4>
+
+
+                    <h4> <span class="badge rounded-pill bg-danger" *ngIf="!heroe.vivo">Muerto</span></h4>
+
+                </div>
+            </td>
+            <td></td>
         </tr>
+
     </tbody>
 </table>
 
 
-<div class="alert alert-warning text-center mt-3">
+<div class="alert alert-warning text-center mt-3" *ngIf="!listaHeroes">
     <h4 class="alert-heading">No hay Registros</h4>
     <p>
         <i class="fa fa-exclamation fa-2x"></i>
     </p>
 </div>
 
-<div class="alert alert-info text-center mt-3">
+<div class="alert alert-info text-center mt-3" *ngIf="listaHeroes">
     <h4 class="alert-heading">Cargando</h4>
     <p>
         <i class="fa fa-sync-alt fa-spin fa-2x"></i>

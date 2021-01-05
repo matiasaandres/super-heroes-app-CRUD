@@ -8,6 +8,7 @@ import{FormsModule} from '@angular/forms';
 import{HttpClientModule} from '@angular/common/http';
 
 
+
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './pages/heroes/heroes.component';
 import { HeroeComponent } from './pages/heroe/heroe.component';
