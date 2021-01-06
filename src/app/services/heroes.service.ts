@@ -49,7 +49,7 @@ return this.http.get(`${this.url}/heroes.json`)
 
     const heroes: HeroeModel[]= [];
 
-    console.log(heroesObj);
+ 
     
     if(heroesObj === null){
       return [];
@@ -64,6 +64,20 @@ return this.http.get(`${this.url}/heroes.json`)
     })
 
    return heroes;
+
+
+  }
+  obtenerHeroe(id:string){
+
+      return this.http.get(`${this.url}/heroes/${id}.json`);
+
+
+  }
+
+  eliminarHeroe(id : string){
+
+   return this.http.delete(`${this.url}/heroes/${id}.json`);
+   
 
 
   }
